@@ -27,7 +27,7 @@ async function index(req, res, next)
         //get data alamat pengiriman
         const deliveryAddress = await DeliveryAddress.find({user: req.user._id})
         .limit(parseInt(limit))
-        .skip(parent(skip))
+        .skip(parseInt(skip))
         .sort({createdAt: 'desc'});
 
         return res.json({

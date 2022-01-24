@@ -9,6 +9,6 @@ const addressController = require('./controller');
 //list endpoint
 router.post('/delivery-addresses', multer().none(), addressController.store);
 router.put('/delivery-adresses/:id', multer().none(), addressController.update);
-router.delete('/delivery-address/"id', addressController.destroy);
+router.delete('/delivery-address/:id', addressController.destroy);
 router.get('/delivery-addresses', addressController.index);
 module.exports = router;
