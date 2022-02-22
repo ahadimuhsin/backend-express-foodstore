@@ -119,7 +119,7 @@ async function index(req, res, next)
         //response ke client
         return res.json({
             //tampilkan juga field virtual
-            data: orders.map(order => order.toJson({virtuals: true})),
+            data: orders.map(order => order.toJSON({virtuals: true})),
             count
         });
     } catch (err) {
