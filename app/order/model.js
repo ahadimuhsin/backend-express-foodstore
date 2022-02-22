@@ -46,10 +46,10 @@ const orderSchema = Schema({
         ref: 'User'
     },
 
-    order_items: {
+    order_items: [{
         type: Schema.Types.ObjectId,
         ref: 'OrderItem'
-    }
+    }]
 }, {timestamps: true});
 //set order_number sebagai auto increment
 orderSchema.plugin(AutoIncrement, {inc_field: 'order_number'});

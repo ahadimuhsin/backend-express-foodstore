@@ -48,7 +48,7 @@ async function store(req, res, next)
                 provinsi: address.provinsi,
                 kabupaten: address.kabupaten,
                 kecamatan: address.kecamatan,
-                keluarahan: address.keluarahan,
+                kelurahan: address.kelurahan,
                 detail: address.detail,
             },
             user: req.user._id
@@ -62,7 +62,7 @@ async function store(req, res, next)
                 qty: parseInt(item.qty),
                 price: parseInt(item.product.price),
                 order: order._id,
-                product: item.prodcut._id
+                product: item.product._id
             })
         ));
 
@@ -70,7 +70,7 @@ async function store(req, res, next)
         orderItems.forEach(item => order.order_items.push(item));
 
         //simpan order
-        order.save();
+        await order.save();
 
         //hapus cart yang sudah diorder
         await CartItem.deleteMany({user: req.user._id});
